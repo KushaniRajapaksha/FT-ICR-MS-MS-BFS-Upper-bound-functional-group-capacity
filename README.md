@@ -63,12 +63,15 @@ Step 3 — MS/MS Filtering
 Removes:
 
 fragments above precursor mass
+
 low signal-to-noise peaks below threshold
+
 Step 4 — Graph Construction (BFS)
 
 Constructs a directed network where:
 
 nodes = fragment masses
+
 edges = neutral-loss transformations
 
 Step 5 — Transformation Analysis

@@ -27,23 +27,23 @@ This framework allows estimation of formula-specific upper bounds on oxygen func
 Input Data Requirements
 1. FT-ICR MS (precursor data)
 
-CSV file containing at minimum:
-
-Measured Mass — observed m/z values
-
-Group — molecular classification (e.g., CHO, CHOS)
+          CSV file containing at minimum:
+          
+          Measured Mass — observed m/z values
+          
+          Group — molecular classification (e.g., CHO, CHOS)
 
 2. MS/MS datasets
    
-m/z — fragment masses
-
-S/N — signal-to-noise ratio
+          m/z — fragment masses
+          
+          S/N — signal-to-noise ratio
 
 3. Neutral loss library
    
-mf — neutral-loss mass
-
-Formula — chemical assignment
+          mf — neutral-loss mass
+          
+          Formula — chemical assignment
 
 
 
@@ -52,50 +52,56 @@ Workflow
 
 Step 1 — Precursor Extraction
 
-Identifies target precursor ions within a defined tolerance window.
+     Identifies target precursor ions within a defined tolerance window.
 
 Step 2 — Molecular Filtering
 
-Restricts analysis to specific compositional classes (e.g., CHO-only).
+     Restricts analysis to specific compositional classes (e.g., CHO-only).
 
 Step 3 — MS/MS Filtering
 
-Removes:
-
-fragments above precursor mass
-
-low signal-to-noise peaks below threshold
+     Removes:
+     
+          Fragments above precursor mass
+          
+          Low signal-to-noise peaks below threshold
 
 Step 4 — Graph Construction (BFS)
 
-Constructs a directed network where:
-
-nodes = fragment masses
-
-edges = neutral-loss transformations
+     Constructs a directed network where:
+     
+          nodes = fragment masses
+          
+          edges = neutral-loss transformations
 
 Step 5 — Transformation Analysis
 
-Quantifies all pairwise mass differences and maps them to known chemical transformations.
+     Quantifies all pairwise mass differences and maps them to known chemical transformations.
 
 Step 6 — Pathway Analysis
 
-Identifies:
-
-maximum CO₂ loss pathways (Sequential)
-
-variant CO₂ fragmentation routes (Non-sequential)
+     Identifies:
+     
+          maximum CO₂ loss pathways (Sequential)
+          
+          variant CO₂ fragmentation routes (Non-sequential)
 
 Output
 
-The pipeline generates:
+     The pipeline generates:
 
-Precursor datasets
-Filtered MS/MS spectra
-Fragmentation networks (edge lists)
-Unique mass distributions
-Transformation tables (mass differences + formulas)
-Functional group statistics
-CO₂ pathway analyses
+          Precursor datasets
+          
+          Filtered MS/MS spectra
+          
+          Fragmentation networks (edge lists)
+          
+          Unique mass distributions
+          
+          Transformation tables (mass differences + formulas)
+          
+          Functional group statistics
+          
+          CO₂ pathway analyses
 
 All outputs are saved as .csv files for downstream statistical and visualization workflows.
